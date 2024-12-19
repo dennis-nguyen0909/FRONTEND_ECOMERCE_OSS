@@ -1,5 +1,8 @@
 import { ProductDetailPage } from "../pages/ProductDetailPage/ProductDetailPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
+import { AdminPage } from "../pages/AdminPage/AdminPage";
+import { LogInPage } from "../pages/LogInPage/LogInPage";
+import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 
 export const routes = [
   {
@@ -22,5 +25,11 @@ export const routes = [
     path: "/login",
     page: LogInPage,
     isShowHeader: false,
+  },
+  {
+    path: "/system/admin",
+    page: AdminPage,
+    isShowHeader: false,
+    isPrivate: true,
   },
 ];
