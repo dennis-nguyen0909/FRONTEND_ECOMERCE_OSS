@@ -10,6 +10,7 @@ import { SearchProduct } from "../pages/SearchProduct/SearchProduct";
 import { SalesProduct } from "../pages/SalesProduct/SalesProduct";
 import { TypeProductPage } from "../pages/TypeProductPage/TypeProductPage";
 import { ProfileUserPage } from "../pages/ProfileUserPage/ProfileUserPage";
+import { OrderPage } from "../pages/OrderPage/OrderPage";
 export const routes = [
   {
     path: "/product-detail/:id",
@@ -82,4 +83,5 @@ export const routes = [
     isShowHeader: true,
     isShowFooter: false,
   },
+  { path: "/order", page: OrderPage, isShowHeader: true, isShowFooter: false },
 ];
