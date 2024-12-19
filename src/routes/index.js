@@ -12,6 +12,7 @@ import { TypeProductPage } from "../pages/TypeProductPage/TypeProductPage";
 import { ProfileUserPage } from "../pages/ProfileUserPage/ProfileUserPage";
 import { OrderPage } from "../pages/OrderPage/OrderPage";
 import { PaymentPage } from "../pages/PaymentPage/PaymentPage";
+import { OrderSuccessPage } from "../pages/OrderSuccessPage/OrderSuccessPage";
 export const routes = [
   {
     path: "/product-detail/:id",
@@ -88,6 +89,12 @@ export const routes = [
   {
     path: "/payment",
     page: PaymentPage,
+    isShowHeader: true,
+    isShowFooter: false,
+  },
+  {
+    path: "/order-success",
+    page: OrderSuccessPage,
     isShowHeader: true,
     isShowFooter: false,
   },
