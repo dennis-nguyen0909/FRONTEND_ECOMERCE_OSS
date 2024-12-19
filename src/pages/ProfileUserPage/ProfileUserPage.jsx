@@ -247,29 +247,7 @@ export const ProfileUserPage = () => {
                         />
 
 
-                        <InputForm
-                            label={'Email :'}
-                            isEmail={false}
-                            placeholder={user.email}
-                            value={email} onChange={handleOnChangeEmail}
-
-                        />
-                        <InputForm
-                            label={'Role:'}
-                            placeholder={user.isAdmin === false ? "User" : "Admin"}
-                            value={isAdmin} onChange={handleOnChangeAdmin}
-                        />
-                        <InputForm
-                            label={'Số điện thoại :'}
-                            placeholder={user.phone}
-                            value={phone} onChange={handleOnChangePhone}
-                        />
-                        <InputForm
-                            label={'Địa chỉ :'}
-                            placeholder={user.address}
-                            value={address} onChange={handleOnChangeAddress}
-                        />
-                       
+                        
                     </div >
                 </div>
             </div>
