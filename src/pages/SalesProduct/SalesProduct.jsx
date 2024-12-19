@@ -198,7 +198,41 @@ export const SalesProduct = () => {
                 <h3 style={{ padding: '0 30px', fontSize: '14px', gap: '10px', color: 'rgb(137,137,137)' }}>Home / Giảm giá
                     <span style={{ marginLeft: '10px', fontSize: '14px', color: 'black' }}></span>
                 </h3>
-                
+                <div style={{ width: '100%', backgroundColor: "#fff" }}>
+                    <div id="container" style={{ height: 'fit-content' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '20px 0', fontSize: '30px', }}>Sản phẩm đang giảm giá </div>
+                        <LoadingComponent isLoading={isLoading}>
+                            <WrapperProduct>
+                                {filterData && filterData.length > 0 ? (
+                                    filterData?.map((product) => (
+                                        <Card
+                                            onClick={() => handleDetailProduct(product?._id)}
+                                            size='small'
+                                            hoverable={true}
+                                            style={{ width: 'calc(50% - 10px)', marginBottom: '10px' }}
+                                            cover={<img style={{ width: '100%', height: 'auto' }} alt="example" src={product?.image} />}
+                                        >
+                                            <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>{product?.name}</p>
+                                            <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>Giảm giá :{product?.discount}%</p>
+                                            <span style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                {covertPrice(product.price)}
+                                            </span>
+                                        </Card>
+                                    ))
+                                ) : (
+                                    <p>Không tìm thấy sản phẩm</p>
+                                )}
+                            </WrapperProduct>
+
+                        </LoadingComponent>
+                        {products?.totalPage === 1 ?
+                            <></>
+                            :
+                            <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto' }} onClick={loadMore}>Xem thêm</Button>
+
+                        }
+                    </div>
+                </div >
             </div>
 
         </WrapperDiv>
