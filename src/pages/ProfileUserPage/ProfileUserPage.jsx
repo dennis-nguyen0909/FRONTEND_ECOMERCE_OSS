@@ -247,7 +247,46 @@ export const ProfileUserPage = () => {
                         />
 
 
-                        
+                        <InputForm
+                            label={'Email :'}
+                            isEmail={false}
+                            placeholder={user.email}
+                            value={email} onChange={handleOnChangeEmail}
+
+                        />
+                        <InputForm
+                            label={'Role:'}
+                            placeholder={user.isAdmin === false ? "User" : "Admin"}
+                            value={isAdmin} onChange={handleOnChangeAdmin}
+                        />
+                        <InputForm
+                            label={'Số điện thoại :'}
+                            placeholder={user.phone}
+                            value={phone} onChange={handleOnChangePhone}
+                        />
+                        <InputForm
+                            label={'Địa chỉ :'}
+                            placeholder={user.address}
+                            value={address} onChange={handleOnChangeAddress}
+                        />
+                        <LoadingComponent isLoading={isPending}>
+
+                            <ButtonComponent
+                                size={'40'}
+                                onClick={handleUpdate}
+                                styleButton={{
+                                    backgroundColor: "rgb(71,71,71)",
+                                    height: '48px',
+                                    width: '100%',
+                                    border: 'none',
+                                    borderRadius: "12px",
+                                    margin: "20px 0"
+                                }}
+                                textButton={"Lưu"}
+                                styleTextButton={{ color: "#fff", fontSize: '15px', fontWeight: 700 }}
+                            />
+                            
+                        </LoadingComponent>
                     </div >
                 </div>
             </div>
