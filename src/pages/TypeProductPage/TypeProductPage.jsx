@@ -242,7 +242,89 @@ export const TypeProductPage = () => {
 
                     </WrapperRow>
                 </LoadingComponent>
-                
+                <div className='productMobile' style={{ margin: '10px 0' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '50px', flexWrap: 'wrap' }}>
+                        {stateProductType?.length === 0 && <>
+                            <Skeleton active />
+                        </>}
+                        {selectedSort === "sales" ? sortedProducts?.map((product) => {
+                            return (
+                                <Card
+                                    onClick={() => handleDetailProduct(product?._id)}
+                                    size='small'
+                                    hoverable={true}
+                                    style={{ width: 'calc(50% - 10px)', marginBottom: '10px' }}
+                                    cover={<img style={{ width: '100%', height: 'auto' }} alt="example" src={product?.image} />}
+                                >
+                                    <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>{product?.name}</p>
+                                    <span style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        {covertPrice(product.price)}
+                                    </span>
+                                </Card>
+                            )
+                        }) : selectedSort === "min" ? sortedPriceMax?.map((product) => {
+                            return (
+                                <Card
+                                    onClick={() => handleDetailProduct(product?._id)}
+                                    size='small'
+                                    hoverable={true}
+                                    style={{ width: 'calc(50% - 10px)', marginBottom: '10px' }}
+                                    cover={<img style={{ width: '100%', height: 'auto' }} alt="example" src={product?.image} />}
+                                >
+                                    <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>{product?.name}</p>
+                                    <span style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        {covertPrice(product.price)}
+                                    </span>
+                                </Card>
+                            )
+                        }) : selectedSort === "max" ? sortedPriceMin.map((product) => {
+                            return (
+                                <Card
+                                    onClick={() => handleDetailProduct(product?._id)}
+                                    size='small'
+                                    hoverable={true}
+                                    style={{ width: 'calc(50% - 10px)', marginBottom: '10px' }}
+                                    cover={<img style={{ width: '100%', height: 'auto' }} alt="example" src={product?.image} />}
+                                >
+                                    <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>{product?.name}</p>
+                                    <span style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        {covertPrice(product.price)}
+                                    </span>
+                                </Card>
+                            )
+                        }) : !selectedSort ? stateProductType?.data?.map((product) => {
+                            return (
+                                <Card
+                                    onClick={() => handleDetailProduct(product?._id)}
+                                    size='small'
+                                    hoverable={true}
+                                    style={{ width: 'calc(50% - 10px)', marginBottom: '10px' }}
+                                    cover={<img style={{ width: '100%', height: 'auto' }} alt="example" src={product?.image} />}
+                                >
+                                    <p style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>{product?.name}</p>
+                                    <span style={{ fontSize: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        {covertPrice(product.price)}
+                                    </span>
+                                </Card>
+                            )
+                        }) : <Skeleton active />}
+                        {/* <ButtonComponent
+                            size={'40'}
+                            onClick={handleReadMore}
+                            styleButton={{
+                                backgroundColor: "rgb(71,71,76)",
+                                height: '48px',
+                                width: '100%',
+                                border: 'none',
+                                borderRadius: "12px",
+                                margin: "20px 0"
+                            }}
+                            textButton={"Xem thêm"}
+                            styleTextButton={{ color: "#fff", fontSize: '15px', fontWeight: 700 }}
+                        >
+                        </ButtonComponent> */}
+                    </div>
+                </div>
 
                 {/* <div className='panigate'>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
