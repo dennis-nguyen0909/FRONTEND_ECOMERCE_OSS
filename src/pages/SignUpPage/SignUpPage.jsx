@@ -112,7 +112,9 @@ export const SignUpPage = () => {
                         <WrapperTextLight style={{ cursor: 'pointer' }} onClick={handleNavigateLogin}>Đăng nhập</WrapperTextLight>
                     </p>
                 </WrapperContainerLeft>
-
+                <WrapperContainerRight className='image-signup'>
+                    <Image src={logo} preview={false} alt='image-logo' height={'100%'} width={"100%"} />
+                </WrapperContainerRight>
             </div >
         </WrapperDivContainer>
     )
