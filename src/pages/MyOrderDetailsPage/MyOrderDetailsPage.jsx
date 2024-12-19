@@ -115,7 +115,69 @@ export const MyOrderDetailsPage = () => {
                     </div>
                 </LoadingComponent>
             </div>
+            <div className='myOrderDetailsMobile'>
+                <LoadingComponent isLoading={isLoading}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>Địa chỉ người nhận</div>
+                            <div style={{ padding: '10px 10px' }}>
+                                <div className='name-info'>{data?.shippingAddress?.fullName}</div>
+                                <div className='address-info'><span>Địa chỉ: </span> {`${data?.shippingAddress?.address} ${data?.shippingAddress?.city}`}</div>
+                                <div className='phone-info'><span>Điện thoại: </span> {data?.shippingAddress?.phone}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>Hình thức giao hàng</div>
+                            <div style={{ padding: '10px 10px' }}>
+                                <div className='delivery-info'><span className='name-delivery' style={{ color: 'orange', fontWeight: 'bold' }}>FAST </span>Giao hàng tiết kiệm</div>
+                                <div className='delivery-fee'><span>Phí giao hàng: </span> {data?.shippingPrice}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>Hình thức thanh toán</div>
+                            <div style={{ padding: '10px 10px' }}>
+                                <div className='payment-info'>{orderContant.payment[data?.paymentMethod]}</div>
+                                <div className='status-payment' style={{ color: 'orange', fontWeight: 'bold' }}>{data?.isPaid ? 'Đã thanh toán' : 'Chưa thanh toán'}</div>
+                            </div>
+                        </div>
+                        <div style={{ borderBottom: '1px solid #ccc', borderTop: '1px solid #ccc', padding: '10px 10px' }}>
+                            {data?.orderItems?.map((item) => {
+                                return (
+                                    <>
+                                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} key={item?._id}>
+                                            <div>
+                                                <img width={'150px'} height={'150px'} objectFit={'cover'} src={item.image} />
+                                            </div>
+                                            <div style={{ padding: '0 10px' }}>
+                                                <h3>{item?.name}</h3>
+                                                <p>Giá :{covertPrice(item?.price)}</p>
+                                                <p>Số lượng : {item?.amount}</p>
+                                                <p>Size :{item?.size}</p>
+                                                <p>Giảm giá : {item?.discount}%</p>
+                                            </div>
+                                        </div>
 
+                                    </>
+                                )
+                            })}
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div>
+                                <div>Tạm tính</div>
+                                <WrapperItem>{covertPrice(priceMemo)}</WrapperItem>
+                            </div>
+                            <div>
+                                <div>Phí vận chuyển</div>
+                                <WrapperItem>{covertPrice(data?.shippingPrice)}</WrapperItem>
+                            </div>
+                            <div>
+                                <div>Tổng cộng</div>
+                                <WrapperItem><WrapperItem>{covertPrice(data?.totalPrice)}</WrapperItem></WrapperItem>
+                            </div>
+                        </div>
+                    </div>
+                </LoadingComponent>
+            </div>
         </WrapperDiv>
 
     )
