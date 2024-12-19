@@ -9,5 +9,9 @@ export const routes = [
         isShowHeader: true,
         isShowFooter: false,
     },
-    
+    {
+        path: '/login',
+        page: LogInPage,
+        isShowHeader: false
+    },
 ]
