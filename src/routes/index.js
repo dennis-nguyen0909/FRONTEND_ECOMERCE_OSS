@@ -8,6 +8,7 @@ import { ProductPage } from "../pages/ProductPage/ProductPage";
 import { SupportPage } from "../pages/SupportPage/SupportPage";
 import { SearchProduct } from "../pages/SearchProduct/SearchProduct";
 import { SalesProduct } from "../pages/SalesProduct/SalesProduct";
+import { TypeProductPage } from "../pages/TypeProductPage/TypeProductPage";
 export const routes = [
   {
     path: "/product-detail/:id",
@@ -63,6 +64,13 @@ export const routes = [
   {
     path: "/product-sales",
     page: SalesProduct,
+    isShowHeader: true,
+    isShowFooter: false,
+  },
+
+  {
+    path: "/product/:type",
+    page: TypeProductPage,
     isShowHeader: true,
     isShowFooter: false,
   },
