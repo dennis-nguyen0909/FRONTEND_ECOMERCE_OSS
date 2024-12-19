@@ -189,7 +189,84 @@ export const ProductDetailsComponent = ({ idProduct }) => {
                         width={1200} />
                 </div> */}
             </WrapperDiv >
-           
+            <div className='mobile' >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+                    <h1 style={{ fontSize: '16px' }}>{productDetail?.name}</h1>
+                    <div
+                        style={{ borderRadius: '60px' }}>
+                        <Image
+
+                            src={productDetail?.image}
+                            alt='image-product'
+                            preview={false}
+                            width={'100%'}
+                            height={'300px'}
+                        // style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                        />
+                    </div>
+                    <h1 style={{ fontSize: '14px' }}>Giá :{covertPrice(productDetail?.price)}</h1>
+                    <div>
+                        <Form.Item
+                            // label="Chọn Size"
+                            name="size"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your size!',
+                                },
+                            ]}
+                        >
+                            <div style={{ margin: '10px 0 20px', padding: '10px 0', borderTop: '1px solid #ccc', borderBottom: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <div style={{ margin: "6px 0" }}>Số lượng</div>
+                                <WrapperQualityProduct>
+                                    <WrapperButtonQuality>
+                                        <MinusOutlined style={{ color: "#000", fontSize: "20px" }} onClick={() => handleChangeCount('decrease', numProduct === 1)} />
+                                    </WrapperButtonQuality>
+                                    {/* <WrapperInputNumber defaultValue={1} size='small' value={numProduct} onChange={handleOnChangeNum} /> */}
+                                    <input defaultValue={1} min={1} max={productDetail?.countInStock} value={numProduct} onChange={handleOnChangeNum} style={{ width: '30px', border: 'transparent', textAlign: 'center', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc' }} />
+                                    <WrapperButtonQuality>
+                                        <PlusOutlined style={{ color: "#000", fontSize: "20px" }} onClick={() => handleChangeCount('increase', numProduct === productDetail?.countInStock)} />
+                                    </WrapperButtonQuality>
+
+                                </WrapperQualityProduct>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+                                <p>Size</p>
+                                <p>{productDetail?.size.map((item) => {
+                                    return (
+                                        <>
+                                            <Button key={item} style={{
+                                                padding: '0 10px', margin: '10px 10px',
+                                                // backgroundColor: selectedSize == item ? "red" : '#fff',
+                                                border: selectedSize == item ? "2px solid black" : "1px solid #ccc"
+
+                                            }} onClick={() => onChangeSize(item)} >{item}</Button>
+                                        </>
+                                    )
+                                })}</p>
+                            </div>
+
+                        </Form.Item>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <ButtonComponent
+                                onClick={handleOrderProduct}
+                                size={'40'}
+                                styleButton={{
+                                    backgroundColor: "rgb(71,71,76)",
+                                    height: '48px',
+                                    width: '220px',
+                                    border: 'none',
+                                    borderRadius: "12px"
+                                }}
+                                textButton={"Thêm vào giỏ"}
+                                styleTextButton={{ color: "#fff", fontSize: '15px', fontWeight: 700 }}
+                            >
+                            </ButtonComponent>
+                        </div>
+                    </div>
+                </div>
+
+            </div >
             {/* <WrapperRowMobile >
                 <h1 style={{ fontSize: '16px' }}>{productDetail?.name}</h1>
                 <img className='productImage' src={productDetail?.image}></img>
