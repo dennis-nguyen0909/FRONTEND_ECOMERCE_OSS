@@ -18,4 +18,9 @@ export const routes = [
     page: SignUpPage,
     isShowHeader: false,
   },
+  {
+    path: "/login",
+    page: LogInPage,
+    isShowHeader: false,
+  },
 ];
