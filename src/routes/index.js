@@ -6,6 +6,7 @@ import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 import { HomePage } from "../pages/HomePage/HomePage";
 import { ProductPage } from "../pages/ProductPage/ProductPage";
 import { SearchProduct } from "../pages/SearchProduct/SearchProduct";
+import { MyOrderPage } from "../pages/MyOrderPage/MyOrderPage";
 
 export const routes = [
   {
@@ -53,4 +54,10 @@ export const routes = [
     isShowHeader: true,
     isShowFooter: false,
   },
+  {
+    path: '/my-order',
+    page: MyOrderPage,
+    isShowHeader: true,
+    isShowFooter: false,
+},
 ];
