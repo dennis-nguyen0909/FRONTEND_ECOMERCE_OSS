@@ -36,7 +36,22 @@ export const SupportPage = () => {
                             <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
                         </div>
                         <br />
-                        
+                        <ButtonComponent
+
+                            onClick={handleSubmit}
+                            size={'40'}
+                            styleButton={{
+                                backgroundColor: "rgb(71,71,76)",
+                                height: '48px',
+                                width: '100%',
+                                border: 'none',
+                                borderRadius: "12px",
+                                margin: "20px 0"
+                            }}
+                            textButton={"Gửi phản hồi"}
+                            styleTextButton={{ color: "#fff", fontSize: '15px', fontWeight: 700 }}
+                        >
+                        </ButtonComponent>
                     </form>
                 </section>
             </div>
