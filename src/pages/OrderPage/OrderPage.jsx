@@ -451,7 +451,77 @@ export const OrderPage = () => {
                     </ModelComponent>
                 </Row >
             </div>
+            <div className='orderMobile'>
+                <div style={{ padding: '0 40px', }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '20px', padding: '10px 0', borderBottom: '1px solid #ccc' }}>
+                        <p style={{ fontSize: '14px', fontWeight: 'bold' }}>Giỏ hàng</p>
+                        <span style={{ fontSize: '14px' }}>
+                            <Checkbox onChange={handleCheckAllChecked} checked={selectedCheck?.length === order?.orderItems?.length} />
+                            <span>Tất cả {order?.orderItems?.length} sản phẩm </span>
+                            <DeleteOutlined onClick={handleDeleteAllOrder} />
+                        </span>
+                    </div>
+                    <div>
 
+                    </div>
+                    {order?.orderItems?.length ? order?.orderItems?.map((item) => {
+                        return (
+                            <>
+                                <div key={item?._id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                                    <Checkbox onChange={onChangeCheckbox} value={item?.product} checked={selectedCheck.includes(item?.product)}></Checkbox>
+                                    <div>
+                                        <img width={'130px'} height={'130px'} objectFit={'cover'} src={item.image} />
+                                    </div>
+                                    <div style={{ padding: '0 10px' }}>
+                                        <h3>{item.name}</h3>
+                                        <p>Size: {item.size}</p>
+                                        <p>Giảm giá:</p>
+                                        <p>Số lượng : {item?.amount}</p>
+                                        <WrapperQualityProduct>
+                                            <WrapperButtonQuality>
+                                                <MinusOutlined style={{ color: "#000", fontSize: "20px" }} onClick={() => handleChangeCount('decrease', item?.product, item?.amount === 1)} />
+                                            </WrapperButtonQuality>
+                                            {/* <WrapperInputNumber defaultValue={1} size='small' value={numProduct} onChange={handleOnChangeNum} /> */}
+                                            <input defaultValue={item?.amount} value={item?.amount} min={1} max={item?.countInStock} onChange={handleOnChangeNum} style={{ width: '30px', border: 'transparent', textAlign: 'center', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc' }} />
+                                            <WrapperButtonQuality>
+                                                <PlusOutlined style={{ color: "#000", fontSize: "20px" }} onClick={() => handleChangeCount('increase', item?.product, item?.amount === item?.countInStock)} />
+                                            </WrapperButtonQuality>
+                                        </WrapperQualityProduct>
+                                        <p>Giá :{covertPrice(item?.price)}</p>
+                                    </div>
+                                </div>
+                            </>
+
+                        )
+                    }) : (
+                        <>
+                            <div style={{ width: '500px', height: '100px', display: 'flex', justifyContent: 'flex-start', borderTop: '1px solid #ccc', marginBottom: '10px' }}>
+                                <p>Giỏ Hàng Rỗng</p>
+                            </div>
+                        </>
+                    )}
+                </div>
+                <div style={{ borderTop: '2px dashed #ccc', borderBottom: '2px dashed #ccc', padding: '10px 40px', gap: '10px', display: 'flex', flexDirection: 'column' }}>
+                    <div>Tạm tính :{covertPrice(priceMemo)}</div>
+                    <div>Giảm giá : {priceDiscount}%</div>
+                    <div>Phí giao hàng :{covertPrice(deliveryPrice)}</div>
+                    <div>Tổng tiền :{covertPrice(totalPriceAll)}</div>
+                </div>
+                <ButtonComponent
+                    onClick={handlePayment}
+                    size={'40'}
+                    styleButton={{
+                        backgroundColor: "rgb(71,71,71)",
+                        height: '48px',
+                        width: '100%',
+                        border: 'none',
+                        borderRadius: "12px",
+                        margin: "20px 0"
+                    }}
+                    textButton={"Thanh Toán"}
+                    styleTextButton={{ color: "#fff", fontSize: '15px', fontWeight: 700 }}
+                />
+            </div>
         </WrapperDivOrder >
     )
 }
