@@ -6,6 +6,7 @@ import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 import { HomePage } from "../pages/HomePage/HomePage";
 import { ProductPage } from "../pages/ProductPage/ProductPage";
 import { SearchProduct } from "../pages/SearchProduct/SearchProduct";
+import { PaymentPage } from '../pages/PaymentPage/PaymentPage'
 
 export const routes = [
   {
@@ -53,4 +54,10 @@ export const routes = [
     isShowHeader: true,
     isShowFooter: false,
   },
+  {
+    path: '/payment',
+    page: PaymentPage,
+    isShowHeader: true,
+    isShowFooter: false,
+},
 ];
