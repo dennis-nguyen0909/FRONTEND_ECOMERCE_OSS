@@ -4,6 +4,7 @@ import { AdminPage } from "../pages/AdminPage/AdminPage";
 import { LogInPage } from "../pages/LogInPage/LogInPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 import { HomePage } from "../pages/HomePage/HomePage";
+import { ProductPage } from "../pages/ProductPage/ProductPage";
 
 export const routes = [
   {
@@ -38,5 +39,11 @@ export const routes = [
     page: HomePage,
     isShowHeader: true,
     isShowFooter: true,
+  },
+  {
+    path: "/product",
+    page: ProductPage,
+    isShowHeader: true,
+    isShowFooter: false,
   },
 ];
