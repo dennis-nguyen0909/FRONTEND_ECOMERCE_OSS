@@ -3,6 +3,7 @@ import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { AdminPage } from "../pages/AdminPage/AdminPage";
 import { LogInPage } from "../pages/LogInPage/LogInPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
+import { HomePage } from "../pages/HomePage/HomePage";
 
 export const routes = [
   {
@@ -31,5 +32,11 @@ export const routes = [
     page: AdminPage,
     isShowHeader: false,
     isPrivate: true,
+  },
+  {
+    path: "/",
+    page: HomePage,
+    isShowHeader: true,
+    isShowFooter: true,
   },
 ];
