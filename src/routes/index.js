@@ -1,5 +1,7 @@
 
 import { ProductDetailPage } from "../pages/ProductDetailPage/ProductDetailPage";
+import { AdminPage } from "../pages/AdminPage/AdminPage";
+
 
 export const routes = [
     
@@ -9,5 +11,10 @@ export const routes = [
         isShowHeader: true,
         isShowFooter: false,
     },
-    
+    {
+        path: '/system/admin',
+        page: AdminPage,
+        isShowHeader: false,
+        isPrivate: true
+    },
 ]
