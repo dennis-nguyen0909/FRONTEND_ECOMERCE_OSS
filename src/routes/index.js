@@ -1,5 +1,6 @@
 
 import { ProductDetailPage } from "../pages/ProductDetailPage/ProductDetailPage";
+import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 
 export const routes = [
     
@@ -9,5 +10,9 @@ export const routes = [
         isShowHeader: true,
         isShowFooter: false,
     },
-    
+    {
+        path: '/sign-up',
+        page: SignUpPage,
+        isShowHeader: false
+    },
 ]
