@@ -5,6 +5,7 @@ import { LogInPage } from "../pages/LogInPage/LogInPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 import { HomePage } from "../pages/HomePage/HomePage";
 import { ProductPage } from "../pages/ProductPage/ProductPage";
+import { SearchProduct } from "../pages/SearchProduct/SearchProduct";
 
 export const routes = [
   {
@@ -43,6 +44,12 @@ export const routes = [
   {
     path: "/product",
     page: ProductPage,
+    isShowHeader: true,
+    isShowFooter: false,
+  },
+  {
+    path: "/search-product",
+    page: SearchProduct,
     isShowHeader: true,
     isShowFooter: false,
   },
