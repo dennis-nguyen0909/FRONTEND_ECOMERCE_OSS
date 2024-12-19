@@ -13,4 +13,9 @@ export const routes = [
     page: NotFoundPage,
     isShowHeader: false,
   },
+  {
+    path: "/sign-up",
+    page: SignUpPage,
+    isShowHeader: false,
+  },
 ];
